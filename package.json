@@ -4,7 +4,7 @@
   "description": "An Online Streaming Web App",
   "main": "index.js",
   "scripts": {
-    "watch": "node-sass sass/main.scss css/style.css -w",
+    "watch": "node-sass sass/main.scss static/css/style.css -w",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
 
