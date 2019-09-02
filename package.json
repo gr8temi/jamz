@@ -1,19 +1,23 @@
 {
-  "name": "starter-file",
+  "name": "jamz",
   "version": "1.0.0",
-  "description": "Change the content for every project",
+  "description": "An Online Streaming Web App",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "watch": "node-sass sass/main.scss css/style.css -w",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
 
-    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "compile:sass": "node-sass sass/main.scss static/css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
-  "author": "Nnaji Victor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nnaji-Victor/jamz.git"
+  },
+  "author": "Nnaji Victor, Adams Temidire",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
@@ -21,5 +25,9 @@
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.1.1",
     "postcss-cli": "^4.1.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Nnaji-Victor/jamz/issues"
+  },
+  "homepage": "https://github.com/Nnaji-Victor/jamz#readme"
 }
