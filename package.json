@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/Nnaji-Victor/jamz.git"
   },
-  "author": "Nnaji Victor, Adams Temidire",
+  "author": "Nnaji Victor, Adams Temidire, Chigozie Asadu",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
