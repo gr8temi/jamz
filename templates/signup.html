@@ -1,34 +1,35 @@
 {% extends "login_layout.html" %}
 {% block body %}
-  <form action="/signup" method="POST" class="form-signin">
-  <div class="text-center mb-4">
-    <img class="mb-4" src="{{ url_for('static', filename='img/headphones-with-music-note.svg') }}" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">JAMZ</h1>
-    <p>Sign up to dive into the world of unlimited music experience or <a href="url_for('login')">Sign in</a> If you already have an account</p>
-  </div>
 
-  <div class="form-label-group">
-    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputEmail">Email address</label>
-  </div>
+<h5>Welcome to JAMZ</h5>
+<p><small class="text-muted">Sign up to discover a new world!</small></p>
+<div class="">
+    <form action="/signup" method="post" autocomplete="off" >
+        <div class="my-3 text-muted text-sm text-muted"></div>
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" placeholder="Username" required autofocus>
+        </div>
 
-  <div class="form-label-group">
-    <input type="text" id="username" name = "name" class="form-control" placeholder="Username" required autofocus>
-    <label for="username">Username</label>
-  </div>
-  <!--  -->
+        <div class="form-group">
+          <input type="email"  name="email" class="form-control" placeholder="Email" required>
+        </div>
 
-  <div class="form-label-group">
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Password</label>
-  </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
 
-  <div class="form-label-group">
-    <input type="password" id="confirmation" name="confirmation" class="form-control" placeholder="Retype password" required>
-    <label for="confirmation">Retype Password</label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
-</form>
+        <div class="form-group">
+          <input type="password" name="confirmation" class="form-control" placeholder=" Retype Password" required>
+        </div>
 
+        <div class="mb-3 text-sm">
+          <span class="text-muted">By clicking Sign Up, I agree to the</span> 
+            <a href="#">Terms of service</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mb-4">Sign Up</button>
+
+        <div>Already have an account? <a href="/login" class="text-primary _600">Sign in</a></div>
+    </form>
+</div>
 {% endblock %}
