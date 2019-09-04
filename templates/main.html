@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="/static/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="/static/css/style.css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="shortcut icon" type="image/png" href="">
+        
+        <title></title>
+    </head>
+    <body class="container">
+        <audio id="song_id" controls="controls" autoplay></audio>
+
+        <ul> 
+            {% for song in songs %}
+            <!-- {{song}} -->
+               <li><a href="javascript:void(0);" onclick="play('{{song.song}}')">{{song.song_name}}</a>  <button onclick="fav('{{song.song_name}}')" class="fav_button" value="{{song}}">+Favourite</button><button class="playlist_id" value="{{song}}">+ Playlist</button></li> 
+            {% endfor %}
+        </ul>
+
+
+        <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
+        <script src="../static/jquery/main.js"></script>
+    </body>
+    
+
+</html>

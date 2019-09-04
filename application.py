@@ -1,5 +1,6 @@
 import os
 
+import eyed3
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask_session import Session
@@ -97,8 +98,45 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
-        return render_template("index.html")
+        return redirect("/") 
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+          
+@app.route('/',  methods=["GET"])
+def index():
+    # songs = os.listdir('static/music')
+    # audiofiles = []
+    # infos = []
+    # info = []
+    # for song in songs:
+    #     audiofiles.append(song)
+    # for audio in audiofiles:
+    #     infos.append(eyed3.load('static/music/'+audio))
+    
+    # for i , val in enumerate(infos):
+    #     info.append({
+    #         "id":i+1,
+    #         "title":val.tag.title,
+    #         "album":val.tag.album,
+    #         "artist":val.tag.artist,
+    #         "song":audiofiles[i]
+    #     })
+    #     db.execute("INSERT INTO artiste (name) VALUES (:artist)",artist=val.tag.artist)
+    #     artiste = db.execute("SELECT id FROM artiste where name=:name",name=val.tag.artist)
+    #     db.execute("INSERT INTO album (name,artiste_id) VALUES (:name,:artist)",name=val.tag.album,artist=artiste[0]["id"])
+    #     album = db.execute("SELECT id FROM album where artiste_id=:artiste",artiste=artiste[0]["id"])
+    #     db.execute("INSERT INTO song (song_name,artiste_id,song) VALUES (:song_name,:artiste,:song)",song_name=val.tag.title,artiste=val.tag.artist,song=audiofiles[i])    
+    songs = db.execute("SELECT * FROM song")
+    # print(songs) 
+    return render_template("index.html",songs=songs)
+
+@app.route('/favourite', methods=["GET", "POST"])
+def favourite():
+    if request.method=="POST":
+        song = request.get_json()
+        # song_info = db.execute("SELECT ")
+        # print (song["title"])
+        db.execute("UPDATE song SET favourite=1 WHERE song_name=:song",song=song["title"])
+    return jsonify(True)
