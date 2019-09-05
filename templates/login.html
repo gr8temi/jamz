@@ -2,21 +2,29 @@
 {% block body %}
 
 <h5>Welcome back</h5>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="display:none;">
+    <strong>Holy guacamole!</strong> <p class="error_m"></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
     <p><small class="text-muted">Login to Enjoy the goodness of music</small></p>
-        <form action="/login" method="post">
+        <form action="/login" method="post" id="log_in">
 
             <div class="form-group">
               <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter email" required autofocus>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required autofocus>
               </div>
 
             <div class="form-group">
               <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
             </div>
 
             <button type="submit" class="btn btn-primary mb-4">Sign in</button> 
             <div>Do not have an account? <a href="/signup" class="text-primary">Sign up</a></div>
         </form>
-
+        <script src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='jquery/main.js') }}"></script>
+        
 {% endblock %}
