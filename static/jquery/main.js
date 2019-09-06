@@ -3,22 +3,25 @@ function play(song) {
     $("#song_id").attr('src', 'static/music/' + song)
 }
 
-function fav(song) {
+function fav(song,fav) {
 
    title = song;
+   favourite = fav;
 //    id = song["id"];
 //    album = song["album"];
 //    song = song["song"]
-   console.log(song)
+//    console.log(fav)
     $.ajax({
         url: "/favourite",
         method: "POST",
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
              title:title,
+             favourite:favourite
         }),
         success: function () {
-            // alert("success")
+            $("#song_menu").load(location.href + " #song_menu");
+            // $("#album_menu").load(location.href + "#album_menu");
         }
     })
 }
@@ -37,7 +40,7 @@ $("#log_in").submit(function(e){
       }),
       success:function(data){
         if (data == true){
-          location.assign("/") //redirecting to home
+          location.assign("/main") //redirecting to home
         }
         else{
           $(".error_m").text(data)
@@ -80,7 +83,7 @@ $("#log_in").submit(function(e){
                 }),
                 success:function(data){
                     if (data == true){
-                        location.assign("/login") //redirecting to home
+                        location.assign("/main") //redirecting to home
                       }
                       else{
                         $(".error_m").text(data) //prints out error message from application.py with reference to the class error_m
@@ -97,3 +100,132 @@ $("#log_in").submit(function(e){
     }
 
   })
+function album(album){
+    let album_id = album;
+    $.ajax({
+        url: "/album_song",
+        method: "POST",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+             album_id:album_id,
+        }),
+        success: function (data) {
+            $(".album_song").html(data)
+            // $("#album_menu").load(location.href + "#album_menu");
+        }
+    })
+
+
+}
+function playlist(song){
+    $(".playlist_panel").toggle();
+    $(".add_pla").hide()
+    $("#play_add").text(song)
+    
+}
+$(".pla_add").unbind().click(function(){
+    $(".add_pla").show()
+})
+function plays(){
+    $(".playlist_id").show()
+    var checkboxes = $(".play_check");  
+    var numberOfCheckedItems = 0;  
+    for(var i = 0; i < checkboxes.length; i++)  
+    {  
+        if(checkboxes[i].checked)  
+            numberOfCheckedItems++;  
+    }  
+    if(numberOfCheckedItems <1)  
+    {  
+        $(".playlist_id").hide()
+        $(".playlist_panel").hide()
+    }  
+}
+
+$(".playlist_id").click(function(){
+    $(".playlist_panel").toggle()
+})
+ 
+$(".add_pla").submit(function(e){
+    e.preventDefault()
+    var checkboxes = $(".play_check");  
+    let playlist = $("#new_play").val()
+    var numberOfCheckedItems = 0;  
+    let obj = []
+    for(var i = 0; i < checkboxes.length; i++)  
+    {  
+        if(checkboxes[i].checked)  
+            // console.log($(checkboxes[i]).val())  
+            obj.push($(checkboxes[i]).val())
+    } 
+    $.ajax({
+        url:"/playlist",
+        method:"POST",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+             playlist:playlist,
+             object:obj
+        }),
+        success:function(data){
+            if (data == true){
+                alert("working")
+            }
+        }
+        
+    })
+
+
+    // if(numberOfCheckedItems <1)  
+    // {  
+    //     $(".playlist_id").hide()
+    // } 
+})
+
+function playli(playl){
+    var checkboxes = $(".play_check");  
+    let playlist = playl 
+    let obj = []
+    for(var i = 0; i < checkboxes.length; i++)  
+    {  
+        if(checkboxes[i].checked)  
+            // console.log($(checkboxes[i]).val())  
+            obj.push($(checkboxes[i]).val())
+    } 
+    alert(playlist)
+    $.ajax({
+        url:"/playlist",
+        method:"POST",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+             playlist:playlist,
+             object:obj
+        }),
+        success:function(data){
+            if (data == true){
+                alert("working")
+            }
+        }
+        
+    })
+
+
+    // if(numberOfCheckedItems <1)  
+    // {  
+    //     $(".playlist_id").hide()
+    // } 
+}
+function songz(pla){
+    let playlist = pla;
+
+    $.ajax({
+        url:"/songz",
+        method:"POST",
+        contentType: 'application/json; charset=utf-8',
+        data : JSON.stringify({
+            playlist:playlist
+        }),
+        success:function(data){
+            $("#songz").html(data)
+        }
+    })
+}
