@@ -478,3 +478,7 @@ q:before,
 q:after {
   content: '';
   content: none; }
+#song_menu a{
+  text-decoration: none;
+  color: #fff;
+}

@@ -14,7 +14,7 @@
             <title></title>
         </head>
         <body class="container">
-            <audio id="song_id" controls="controls" autoplay></audio>
+           
     
             <ul> 
                     <button class="playlist_id" style="display: none;">+ Playlist</button> 
@@ -36,9 +36,17 @@
                         </div>
 
                 {% for song in songs %}
-                   <li><a href="javascript:void(0);" onclick="play('{{song.song}}')">{{song.song_name}}</a>  <button onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="fav_button" value="{{song}}">Unlike</button>
-                    <input type="checkbox" class="play_check" name="play_check" value="{{song.id}}" onclick="plays()">
-                    </li> 
+                <div class="song ">
+                        <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                        <p class="song-no">{{song.id -54}}</p>
+                        <a href="javascript:void(0);" onclick="play('{{song.song}}')"  class="song-name">{{song.song_name}}
+                        </a>
+                        <p class="song-time">3:23</p>
+                        <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
+                            <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
+                        </svg>
+                        <input type="checkbox" class="song-icon play_check" name="play_check" value="{{song.id}}" onclick="plays()">
+                 </div> 
                 {% endfor %}
             </ul>
           
