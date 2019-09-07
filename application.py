@@ -37,8 +37,9 @@ Session(app)
 #login
 db = SQL("sqlite:///jamz.db")
 
-@app.route("/check", methods=["GET"])
 
+playlist = db.execute("SELECT * FROM playlists")
+@app.route("/check", methods=["GET"])
 def check():
     """Return true if username is available, else false, in JSON format"""
     email = request.args.get("email")
@@ -49,8 +50,6 @@ def check():
         return jsonify(False)
     else:
         return jsonify(True)
-
-
 
 @app.route("/signup", methods=["GET","POST"])
 def signup():
@@ -78,9 +77,9 @@ def signup():
     else:
         return render_template("signup.html")   
 
-# @app.route("/")
-# def index():
-#     return render_template("index.html")   
+@app.route("/")
+def index():
+    return render_template("index.html")   
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -121,8 +120,8 @@ def login():
     else:
         return render_template("login.html")
           
-@app.route('/',  methods=["GET"])
-def index():
+@app.route('/main',  methods=["GET"])
+def main():
     # songs = os.listdir('static/music')
     # audiofiles = []
     # infos = []
@@ -147,13 +146,66 @@ def index():
     #     db.execute("INSERT INTO song (song_name,artiste_id,song) VALUES (:song_name,:artiste,:song)",song_name=val.tag.title,artiste=val.tag.artist,song=audiofiles[i])    
     songs = db.execute("SELECT * FROM song")
     # print(songs) 
-    return render_template("index.html",songs=songs)
+    return render_template("main.html",songs=songs)
 
 @app.route('/favourite', methods=["GET", "POST"])
 def favourite():
     if request.method=="POST":
         song = request.get_json()
-        # song_info = db.execute("SELECT ")
-        # print (song["title"])
-        db.execute("UPDATE song SET favourite=1 WHERE song_name=:song",song=song["title"])
-    return jsonify(True)
+        if song["favourite"]=='0':
+            db.execute("UPDATE song SET favourite=1 WHERE song_name=:song",song=song["title"])
+            return jsonify(True)
+        elif song["favourite"]=='1':
+            db.execute("UPDATE song SET favourite=0 WHERE song_name=:song",song=song["title"])
+            return jsonify(True)
+    elif request.method =="GET":
+        playlist = db.execute("SELECT DISTINCT playlist_name FROM playlists")
+        # for play in playlist:
+        #     print(play["playlist_name"])
+        songs = db.execute("SELECT * FROM song WHERE favourite=1")
+        return render_template("favourite.html", songs=songs,playlist=playlist)
+
+@app.route('/album', methods=["GET","POST"])
+def albums():
+    if request.method =="GET":
+        albums = db.execute("SELECT * FROM album")
+        return render_template("album.html",albums=albums)
+
+
+@app.route('/album_song', methods=["POST"])
+def albums_song():
+    album = request.get_json()
+    album_song = db.execute("SELECT * FROM song WHERE album_id=:id ", id=album["album_id"])
+    return render_template("album_song.html",album_song=album_song,playlist=playlist)   
+# @app.route('/playlist', methods=["GET", "POST"])
+# def playlist():
+#     if request.method =="POST"'
+
+@app.route('/playlist', methods=["POST", "GET"] )
+def playlist():
+    if request.method == "POST":
+        info = request.get_json()
+        songs=info["object"]
+        for song in songs:
+            db.execute("INSERT INTO playlists (song_id,playlist_name) VALUES (:song,:playlist)", song=song,playlist=info["playlist"])
+        return jsonify(True)
+    elif request.method == "GET":
+        playlists = db.execute("SELECT DISTINCT playlist_name FROM playlists")
+        print(playlists)
+        return render_template("playlist.html",playlists=playlists)
+
+@app.route('/songz', methods=["POST"])
+def songz():
+   info = request.get_json()
+   playlist = info["playlist"]
+   song_ids = db.execute("SELECT song_id FROM playlists WHERE playlist_name=:name",name=playlist)
+   songs=[]
+   for ids in song_ids:
+       song = db.execute("SELECT * FROM song where id=:ids",ids=ids["song_id"])
+       songs.append(song)
+
+   return render_template("songz.html",songs=songs)   
+
+# for i, song in enumerate(songs):
+#        for son in song:
+#            print(son["song"])

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <script src="/static/jquery/jquery.min.js"></script>
+            <link rel="stylesheet" href="/static/css/style.css">
+            
+            <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../static/css/style.css">
+            <link rel="shortcut icon" type="image/png" href="">
+            
+            <title></title>
+        </head>
+        <body class="container">
+            <audio id="song_id" controls="controls" autoplay></audio>
+    
+            <ul> 
+                    <button class="playlist_id" style="display: none;">+ Playlist</button> 
+                    <div class="playlist_panel" style="display: none">
+                        
+                        {% for play in playlist %}
+                            <li><a href="javascript:void(0)" id="play_list" onclick="playli('{{play["playlist_name"]}}')">+ {{play["playlist_name"]}}</a></li>
+                        {% endfor %}
+                            
+                        
+                            
+                            <button class="pla_add">Create new playlist</button>
+                            <form action="/playlist" method="POST" class="add_pla" style="display: none;">               
+                            <div>
+                              <input type="text" id="new_play" name="new_play"> 
+                              <input type="submit" value="create">
+                            </div>
+                            </form>
+                        </div>
+
+                {% for song in songs %}
+                   <li><a href="javascript:void(0);" onclick="play('{{song.song}}')">{{song.song_name}}</a>  <button onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="fav_button" value="{{song}}">Unlike</button>
+                    <input type="checkbox" class="play_check" name="play_check" value="{{song.id}}" onclick="plays()">
+                    </li> 
+                {% endfor %}
+            </ul>
+          
+    
+    
+            <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
+            <script src="../static/jquery/main.js"></script>
+        </body>
+        
+    
+    </html>

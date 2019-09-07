@@ -3,30 +3,139 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script src="/static/jquery/jquery.min.js"></script>
-        <link rel="stylesheet" href="/static/css/style.css">
         
-        <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:300i,400,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="shortcut icon" type="image/png" href="">
         
-        <title></title>
+        
+        <title>JAMZ&mdash; Music is your language</title>
     </head>
-    <body class="container">
-        <audio id="song_id" controls="controls" autoplay></audio>
+    <body>
+        <div class="container">
+            <header class="header">
+               <div class="logo">
+                    <svg class="logo__icon">
+                        <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-left"></use>
+                    </svg>
 
-        <ul> 
-            {% for song in songs %}
-            <!-- {{song}} -->
-               <li><a href="javascript:void(0);" onclick="play('{{song.song}}')">{{song.song_name}}</a>  <button onclick="fav('{{song.song_name}}')" class="fav_button" value="{{song}}">+Favourite</button><button class="playlist_id" value="{{song}}">+ Playlist</button></li> 
-            {% endfor %}
-        </ul>
+                    <svg class="logo__icon">
+                        <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-right"></use>
+                    </svg>
+               </div>
 
+               <form action="#" class="search">
+                   <input type="text" class="search__input" placeholder="Search Songs">
+                   <button class="search__button">
+                       <svg class="search__icon">
+                           <use xlink:href="/static/img/sprite.svg#icon-search"></use>
+                       </svg>
+                   </button>
+               </form>
 
-        <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
-        <script src="../static/jquery/main.js"></script>
-    </body>
+               <nav class="user-nav">
+                   <div class="user-nav__icon-box">
+                       <img class="user" src="/static/img/user.png">
+                       <p class="log">Username</p>
+                   </div>
+
+                   <div class="user-nav__icon-box">
+                        <svg class="user-nav__icon">
+                             <use xlink:href="/static/img/sprite.svg#icon-dots-three-vertical"></use>
+                        </svg>
+                        <div class="dropdown-content">
+                            <a href="#">Logout</a>
+                        </div>
+                   </div>
+               </nav>
+            </header>
+
+            <div class="content">
+                <nav class="sidebar">
+                    <div class="sidebar__content">
+                        <p>App</p>
+                        <a href="#" class="sidebar__btn">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-magic-wand"></use>
+                            </svg><p>Explore</p>
+                        </a>
+
+                        <ul class="list">
+                            <li class="list__item">
+                                    <svg class="sidebar__icon">
+                                        <use xlink:href="/static/img/sprite.svg#icon-megaphone"></use>
+                                    </svg>
+                                <a href="#" class="list__ele">Suggest</a>
+                            </li>
+
+                            <li class="list__item">
+                                    <svg class="sidebar__icon">
+                                        <use xlink:href="/static/img/sprite.svg#icon-stats-dots"></use>
+                                    </svg>
+                                <a href="#" class="list__ele">Top Charts</a>
+                            </li>
+
+                            <li class="list__item">
+                                    <svg class="sidebar__icon">
+                                        <use xlink:href="/static/img/sprite.svg#icon-beamed-note"></use>
+                                    </svg>
+                                <a href="#" class="list__ele">New Stuffs</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar__content">
+                            <p>Personal</p>
+                            <ul class="list">
+                                <li class="list__item">
+                                        <svg class="sidebar__icon">
+                                            <use xlink:href="/static/img/sprite.svg#icon-heart"></use>
+                                        </svg>
+                                    <a href="#" class="list__ele">Favourite</a>
+                                </li>
     
+                                <li class="list__item">
+                                        <svg class="sidebar__icon">
+                                            <use xlink:href="/static/img/sprite.svg#icon-vinyl"></use>
+                                        </svg>
+                                    <a href="#" class="list__ele">Album</a>
+                                </li>
+    
+                                <li class="list__item">
+                                        <svg class="sidebar__icon">
+                                            <use xlink:href="/static/img/sprite.svg#icon-text"></use>
+                                        </svg>
+                                    <a href="#" class="list__ele">Playlist</a>
+                                </li>
 
+                                <li class="list__item">
+                                        <svg class="sidebar__icon">
+                                            <use xlink:href="/static/img/sprite.svg#icon-list"></use>
+                                        </svg>
+                                    <a href="#" class="list__ele">Genres</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    <div class="sidebar__content u-margin-bottom-small" style="margin-left: 10px;">
+                        <li class="list__item">
+                                <svg class="sidebar__icon">
+                                    <use xlink:href="/static/img/sprite.svg#icon-loop"></use>
+                                </svg>
+                            <a href="#" class="list__ele">Create Playlist</a>
+                        </li>
+                    </div>
+                </nav>
+
+                <main class="app-view">
+                    <div class="heading-primary">Explore New</div>
+                    <div class="explore-view">
+                        
+                    </div>
+                </main>
+            </div>
+
+            <footer class="footer">
+                footer
+            </footer>
+    </body>
 </html>

@@ -1,0 +1,40 @@
+.container{
+    max-width: 120rem;
+    margin: 4.5rem;
+    background-color: $color-black;
+    box-shadow: 0 2rem 18rem rgba(225, 225, 225, .3);
+    min-height: 40rem;
+}
+
+.header{
+    height: 5rem;
+    border-bottom:yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+.footer{
+    height: 4rem;
+    // background-color: brown;
+    border-bottom: rgba(225, 225, 225, .3);
+}
+
+.content{
+    display: flex;
+
+}
+
+.sidebar{
+    // background-color: red;
+    flex: 0 0 15%;
+    border-right: .02px solid $color-grey-dark-3;
+}
+
+.app-view{
+    // background-color: green;
+    flex: 1;
+    height: 35rem;
+}
