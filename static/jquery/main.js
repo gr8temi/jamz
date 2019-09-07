@@ -1,6 +1,7 @@
 
-function play(song) {
+function play(song,art) {
     $("#song_id").attr('src', 'static/music/' + song)
+    $(".playing").html(song+"<span class='artist'>"+art+"</span>")
 }
 
 function fav(song,fav) {
@@ -227,5 +228,10 @@ function songz(pla){
         success:function(data){
             $("#songz").html(data)
         }
+    })
+}
+function fav_get(){
+    $.get("/favourite", function(data){
+        $(".songs-holder").html(data)
     })
 }
