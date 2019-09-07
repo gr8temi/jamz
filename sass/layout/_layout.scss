@@ -1,14 +1,15 @@
 .container{
-    max-width: 120rem;
-    margin: 4.5rem;
+    max-width: auto;
+    margin: 1.3rem;
     background-color: $color-black;
     box-shadow: 0 2rem 18rem rgba(225, 225, 225, .3);
     min-height: 40rem;
+    overflow-x: hidden;
 }
 
 .header{
     height: 5rem;
-    border-bottom:yellow;
+    // border-bottom: .02px solid $color-grey-dark-3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,4 +38,20 @@
     // background-color: green;
     flex: 1;
     height: 35rem;
+    margin: 1.6rem 0 0 3rem;
+}
+
+.song-contents{
+    display: grid;
+    width: 90vw;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-top: -2rem;
+}
+
+.footer-items{
+    margin-left: 2rem;
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
 }
