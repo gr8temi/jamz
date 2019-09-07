@@ -1,141 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="https://fonts.googleapis.com/css?family=Nunito:300i,400,600,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../static/css/style.css">
-        
-        
-        <title>JAMZ&mdash; Music is your language</title>
-    </head>
-    <body>
-        <div class="container">
-            <header class="header">
-               <div class="logo">
-                    <svg class="logo__icon">
-                        <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-left"></use>
-                    </svg>
 
-                    <svg class="logo__icon">
-                        <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-right"></use>
-                    </svg>
-               </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-               <form action="#" class="search">
-                   <input type="text" class="search__input" placeholder="Search Songs">
-                   <button class="search__button">
-                       <svg class="search__icon">
-                           <use xlink:href="/static/img/sprite.svg#icon-search"></use>
-                       </svg>
-                   </button>
-               </form>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300i,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 
-               <nav class="user-nav">
-                   <div class="user-nav__icon-box">
-                       <img class="user" src="/static/img/user.png">
-                       <p class="log">Username</p>
-                   </div>
 
-                   <div class="user-nav__icon-box">
-                        <svg class="user-nav__icon">
-                             <use xlink:href="/static/img/sprite.svg#icon-dots-three-vertical"></use>
-                        </svg>
-                        <div class="dropdown-content">
-                            <a href="#">Logout</a>
-                        </div>
-                   </div>
-               </nav>
-            </header>
+    <title>JAMZ&mdash; Music is your language</title>
+</head>
 
-            <div class="content">
-                <nav class="sidebar">
-                    <div class="sidebar__content">
-                        <p>App</p>
-                        <a href="#" class="sidebar__btn">
-                            <svg class="sidebar__icon">
-                                <use xlink:href="/static/img/sprite.svg#icon-magic-wand"></use>
-                            </svg><p>Explore</p>
-                        </a>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg class="logo__icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-left"></use>
+                </svg>
 
-                        <ul class="list">
-                            <li class="list__item">
-                                    <svg class="sidebar__icon">
-                                        <use xlink:href="/static/img/sprite.svg#icon-megaphone"></use>
-                                    </svg>
-                                <a href="#" class="list__ele">Suggest</a>
-                            </li>
-
-                            <li class="list__item">
-                                    <svg class="sidebar__icon">
-                                        <use xlink:href="/static/img/sprite.svg#icon-stats-dots"></use>
-                                    </svg>
-                                <a href="#" class="list__ele">Top Charts</a>
-                            </li>
-
-                            <li class="list__item">
-                                    <svg class="sidebar__icon">
-                                        <use xlink:href="/static/img/sprite.svg#icon-beamed-note"></use>
-                                    </svg>
-                                <a href="#" class="list__ele">New Stuffs</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar__content">
-                            <p>Personal</p>
-                            <ul class="list">
-                                <li class="list__item">
-                                        <svg class="sidebar__icon">
-                                            <use xlink:href="/static/img/sprite.svg#icon-heart"></use>
-                                        </svg>
-                                    <a href="#" class="list__ele">Favourite</a>
-                                </li>
-    
-                                <li class="list__item">
-                                        <svg class="sidebar__icon">
-                                            <use xlink:href="/static/img/sprite.svg#icon-vinyl"></use>
-                                        </svg>
-                                    <a href="#" class="list__ele">Album</a>
-                                </li>
-    
-                                <li class="list__item">
-                                        <svg class="sidebar__icon">
-                                            <use xlink:href="/static/img/sprite.svg#icon-text"></use>
-                                        </svg>
-                                    <a href="#" class="list__ele">Playlist</a>
-                                </li>
-
-                                <li class="list__item">
-                                        <svg class="sidebar__icon">
-                                            <use xlink:href="/static/img/sprite.svg#icon-list"></use>
-                                        </svg>
-                                    <a href="#" class="list__ele">Genres</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    <div class="sidebar__content u-margin-bottom-small" style="margin-left: 10px;">
-                        <li class="list__item">
-                                <svg class="sidebar__icon">
-                                    <use xlink:href="/static/img/sprite.svg#icon-loop"></use>
-                                </svg>
-                            <a href="#" class="list__ele">Create Playlist</a>
-                        </li>
-                    </div>
-                </nav>
-
-                <main class="app-view">
-                    <div class="heading-primary">Explore New</div>
-                    <div class="explore-view">
-                        
-                    </div>
-                </main>
+                <svg class="logo__icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-chevron-thin-right"></use>
+                </svg>
             </div>
 
-            <footer class="footer">
-                footer
-            </footer>
-    </body>
+            <form action="#" class="search">
+                <input type="text" class="search__input" placeholder="Search Songs">
+                <button class="search__button">
+                    <svg class="search__icon">
+                        <use xlink:href="/static/img/sprite.svg#icon-search"></use>
+                    </svg>
+                </button>
+            </form>
+
+            <nav class="user-nav">
+                <div class="user-nav__icon-box">
+                    <img class="user" src="/static/img/user.png">
+                    <p class="log">Username</p>
+                </div>
+
+                <div class="user-nav__icon-box">
+                    <svg class="user-nav__icon">
+                        <use xlink:href="/static/img/sprite.svg#icon-dots-three-vertical"></use>
+                    </svg>
+                    <div class="dropdown-content">
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content">
+            <nav class="sidebar">
+                <div class="sidebar__content">
+                    <p>App</p>
+                    <a href="#" class="sidebar__btn">
+                        <svg class="sidebar__icon">
+                            <use xlink:href="/static/img/sprite.svg#icon-magic-wand"></use>
+                        </svg>
+                        <p>Explore</p>
+                    </a>
+
+                    <ul class="list">
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-megaphone"></use>
+                            </svg>
+                            <a href="#" class="list__ele">Suggest</a>
+                        </li>
+
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-stats-dots"></use>
+                            </svg>
+                            <a href="#" class="list__ele">Top Charts</a>
+                        </li>
+
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-beamed-note"></use>
+                            </svg>
+                            <a href="#" class="list__ele">New Stuffs</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar__content">
+                    <p>Personal</p>
+                    <ul class="list">
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-heart"></use>
+                            </svg>
+                            <a href="javascript:void(0)" onclick="fav_get()" class="list__ele">Favourite</a>
+                        </li>
+
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-vinyl"></use>
+                            </svg>
+                            <a href="#" class="list__ele">Album</a>
+                        </li>
+
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-text"></use>
+                            </svg>
+                            <a href="#" class="list__ele">Playlist</a>
+                        </li>
+
+                        <li class="list__item">
+                            <svg class="sidebar__icon">
+                                <use xlink:href="/static/img/sprite.svg#icon-list"></use>
+                            </svg>
+                            <a href="#" class="list__ele">Genres</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar__content u-margin-bottom-small" style="margin-left: 10px;">
+                    <li class="list__item">
+                        <svg class="sidebar__icon">
+                            <use xlink:href="/static/img/sprite.svg#icon-loop"></use>
+                        </svg>
+                        <a href="#" class="list__ele">Create Playlist</a>
+                    </li>
+                </div>
+            </nav>
+
+            <main class="app-view">
+                <div class="slider-div" id="slider">
+                    <div class="heading-primary">Explore New</div>
+
+                    <div class="carousel-wrap">
+                        <div class="owl-carousel ">
+                            <div class="item"><img src="../static/img/b7.jpg">
+                                <div class="desc">Nicki Minaj</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b6.jpg">
+                                <div class="desc">Drake</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b2.jpg">
+                                <div class="desc">Akon</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b4.jpg">
+                                <div class="desc">lil Nas X</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b5.jpg">
+                                <div class="desc">Nicki Minaj</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b6.jpg">
+                                <div class="desc">Nicki Minaj</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b5.jpg">
+                                <div class="desc">Nicki Minaj</div>
+                            </div>
+                            <div class="item"><img src="../static/img/b6.jpg">
+                                <div class="desc">Nicki Minaj</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="song-contents" >
+                    <div class="songs" id="song_menu">
+                        <div class="heading-primary">Songs</div>
+                        <div class="songs-holder" >
+                                {% for song in songs %}
+                                {% if song.favourite ==0 %}
+                            <div class="song " >
+                                <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                                <p class="song-no">{{song.id -54}}</p>
+                                <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                </a>
+                                <p class="song-time">3:23</p>
+                                <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')"  class="sidebar__icon like-icon">
+                                    <use   class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
+                                </svg>
+                                <input type="checkbox" class="song-icon">
+                            </div>
+                            {% else %}
+                            <div class="song ">
+                                    <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                                    <p class="song-no">{{song.id -54}}</p>
+                                    <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                    </a>
+                                    <p class="song-time">3:23</p>
+                                    <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
+                                        <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
+                                    </svg>
+                                    <input type="checkbox" class="song-icon">
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="genress">
+                        <div class="heading-primary u-move-text">Mood</div>
+                        <div class="genres">
+                            <div class="genre">Hip pop</div>
+                            <div class="genre">RnB</div>
+                            <div class="genre">AfroBeat</div>
+                            <div class="genre">Rap</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-items">
+                <!-- <svg class="sidebar__icon like-icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-controller-jump-to-start"></use>
+                </svg>
+
+                <svg class="sidebar__icon like-icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-controller-play"></use>
+                </svg>
+
+                <svg class="sidebar__icon like-icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-controller-next"></use>
+                </svg>
+
+                
+                <svg class="sidebar__icon like-icon">
+                    <use xlink:href="/static/img/sprite.svg#icon-volume-medium"></use>
+                </svg> -->
+
+                <img src="/static/img/b7.jpg" alt="album art" class="song-img">
+
+                <p style="font-size: 12px;" class="song-name playing">Rodeo <span class="artist">Kirko and Bangs</span></p>
+
+                <!-- <p class="song-time">0:00</p> -->
+                <!-- <div class="range" id="range">
+                    <div class="slider" id="slider2"></div>
+                </div> -->
+                <audio style="width: 100%" id="song_id" controls="controls" autoplay></audio>
+                <p class="song-time">4:12</p>
+            </div>
+        </footer>
+
+        <script src="../static/jquery/jquery.min.js"></script>
+        <script src="../static/script/owl.carousel.min.js"></script>
+        <script src="../static/script/index.js"></script>
+        <script src="../static/jquery/main.js"></script>
+</body>
+
 </html>
