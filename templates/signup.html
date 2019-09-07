@@ -1,0 +1,46 @@
+{% extends "login_layout.html" %}
+{% block body %}
+
+<h5>Welcome to JAMZ</h5>
+<p><small class="text-muted">Sign up to discover a new world!</small></p>
+<div class="">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display:none;">
+        <strong>Holy guacamole!</strong><p class="error_m"></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    <form action="/signup" method="post" autocomplete="off" id="sign_up" >
+        <div class="my-3 text-muted text-sm text-muted"></div>
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" placeholder="Username" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email"  name="email" class="form-control" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="confirmation" name="confirmation" class="form-control" placeholder=" Retype Password" required>
+        </div>
+
+        <div class="mb-3 text-sm">
+          <span class="text-muted">By clicking Sign Up, I agree to the</span> 
+            <a href="#">Terms of service</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mb-4">Sign Up</button>
+
+        <div>Already have an account? <a href="/login" class="text-primary _600">Sign in</a></div>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery/main.js') }}"></script>
+
+{% endblock %}

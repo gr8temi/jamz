@@ -4,7 +4,7 @@
   "description": "An Online Streaming Web App",
   "main": "index.js",
   "scripts": {
-    "watch": "node-sass sass/main.scss css/style.css -w",
+    "watch": "node-sass sass/main.scss static/css/style.css -w",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
 
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/Nnaji-Victor/jamz.git"
   },
-  "author": "Nnaji Victor, Adams Temidire",
+  "author": "Nnaji Victor, Adams Temidire, Chigozie Asadu",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
