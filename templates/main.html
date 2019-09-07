@@ -94,7 +94,7 @@
                             <svg class="sidebar__icon">
                                 <use xlink:href="/static/img/sprite.svg#icon-heart"></use>
                             </svg>
-                            <a href="#" class="list__ele">Favourite</a>
+                            <a href="javascript:void(0)" onclick="fav_get()" class="list__ele">Favourite</a>
                         </li>
 
                         <li class="list__item">
@@ -135,7 +135,7 @@
                     <div class="heading-primary">Explore New</div>
 
                     <div class="carousel-wrap">
-                        <div class="owl-carousel">
+                        <div class="owl-carousel ">
                             <div class="item"><img src="../static/img/b7.jpg">
                                 <div class="desc">Nicki Minaj</div>
                             </div>
@@ -164,74 +164,37 @@
                     </div>
                 </div>
 
-                <div class="song-contents">
-                    <div class="songs">
+                <div class="song-contents" >
+                    <div class="songs" id="song_menu">
                         <div class="heading-primary">Songs</div>
-                        <div class="songs-holder" id="song">
-                            <div class="song">
+                        <div class="songs-holder" >
+                                {% for song in songs %}
+                                {% if song.favourite ==0 %}
+                            <div class="song " >
                                 <img src="/static/img/b1.jpg" alt="album art" class="song-img">
-                                <p class="song-no">1</p>
-                                <p class="song-name">Beautiful Woman
-                                </p>
+                                <p class="song-no">{{song.id -54}}</p>
+                                <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                </a>
                                 <p class="song-time">3:23</p>
-                                <svg class="sidebar__icon like-icon">
-                                    <use xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
+                                <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')"  class="sidebar__icon like-icon">
+                                    <use   class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
                                 </svg>
                                 <input type="checkbox" class="song-icon">
                             </div>
-
-                            <div class="song">
-                                <img src="/static/img/b2.jpg" alt="album art" class="song-img">
-                                <p class="song-no">2</p>
-                                <p class="song-name">Love is an amazing ride</p>
-                                <p class="song-time">3:00</p>
-                                <svg class="sidebar__icon like-icon">
-                                    <use xlink:href="/static/img/sprite.svg#icon-heart-outlined"></use>
-                                </svg>
-                                <input type="checkbox" class="song-icon">
-                            </div>
-
-                            <div class="song">
-                                <img src="/static/img/b4.jpg" alt="album art" class="song-img">
-                                <p class="song-no">3</p>
-                                <p class="song-name">Whyne for me baby</p>
-                                <p class="song-time">2:27</p>
-                                <svg class="sidebar__icon like-icon">
-                                        <use xlink:href="/static/img/sprite.svg#icon-heart-outlined"></use>
+                            {% else %}
+                            <div class="song ">
+                                    <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                                    <p class="song-no">{{song.id -54}}</p>
+                                    <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                    </a>
+                                    <p class="song-time">3:23</p>
+                                    <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
+                                        <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
                                     </svg>
-                                <input type="checkbox" class="song-icon">
-                            </div>
-
-                            <div class="song">
-                                <img src="/static/img/b7.jpg" alt="album art" class="song-img">
-                                <p class="song-no">4</p>
-                                <p class="song-name">Rodeo</p>
-                                <p class="song-time">4:22</p>
-                                <svg class="sidebar__icon like-icon">
-                                    <use xlink:href="/static/img/sprite.svg#icon-heart-outlined"></use>
-                                </svg>
-                                <input type="checkbox" class="song-icon">
-                            </div>
-                            <div class="song">
-                                <img src="/static/img/b7.jpg" alt="album art" class="song-img">
-                                <p class="song-no">4</p>
-                                <p class="song-name">Rodeo</p>
-                                <p class="song-time">4:22</p>
-                                <svg class="sidebar__icon like-icon">
-                                        <use xlink:href="/static/img/sprite.svg#icon-heart-outlined"></use>
-                                    </svg>
-                                <input type="checkbox" class="song-icon">
-                            </div>
-                            <div class="song">
-                                <img src="/static/img/b7.jpg" alt="album art" class="song-img">
-                                <p class="song-no">4</p>
-                                <p class="song-name">Rodeo</p>
-                                <p class="song-time">4:22</p>
-                                <svg class="sidebar__icon like-icon">
-                                    <use xlink:href="/static/img/sprite.svg#icon-heart-outlined"></use>
-                                </svg>
-                                <input type="checkbox" class="song-icon">
-                            </div>
+                                    <input type="checkbox" class="song-icon">
+                                </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
 
@@ -250,7 +213,7 @@
 
         <footer class="footer">
             <div class="footer-items">
-                <svg class="sidebar__icon like-icon">
+                <!-- <svg class="sidebar__icon like-icon">
                     <use xlink:href="/static/img/sprite.svg#icon-controller-jump-to-start"></use>
                 </svg>
 
@@ -265,16 +228,17 @@
                 
                 <svg class="sidebar__icon like-icon">
                     <use xlink:href="/static/img/sprite.svg#icon-volume-medium"></use>
-                </svg>
+                </svg> -->
 
                 <img src="/static/img/b7.jpg" alt="album art" class="song-img">
 
-                <p class="song-name playing">Rodeo <span class="artist">Kirko and Bangs</span></p>
+                <p style="font-size: 12px;" class="song-name playing">Rodeo <span class="artist">Kirko and Bangs</span></p>
 
-                <p class="song-time">0:00</p>
-                <div class="range" id="range">
+                <!-- <p class="song-time">0:00</p> -->
+                <!-- <div class="range" id="range">
                     <div class="slider" id="slider2"></div>
-                </div>
+                </div> -->
+                <audio style="width: 100%" id="song_id" controls="controls" autoplay></audio>
                 <p class="song-time">4:12</p>
             </div>
         </footer>
@@ -282,6 +246,7 @@
         <script src="../static/jquery/jquery.min.js"></script>
         <script src="../static/script/owl.carousel.min.js"></script>
         <script src="../static/script/index.js"></script>
+        <script src="../static/jquery/main.js"></script>
 </body>
 
 </html>
