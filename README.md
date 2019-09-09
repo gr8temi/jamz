@@ -1,4 +1,4 @@
-# jamz 
+# Jamz 
 An online Music player application that organises your music in a simple view 
 
 ## Package Requirements
@@ -55,3 +55,33 @@ An online Music player application that organises your music in a simple view
     
      > flask run
     
+## Project Flow
+- Sign Up
+  * To get started click on either the **Discover** or the **sign up** button seen 
+  * Fill in correct email, username and password and a re-password
+  * If signup successful you'll be redirected to the music page
+
+- Main Page
+  * The next page should look like this
+  ![alt text](https://res.cloudinary.com/dczmdkhbw/image/upload/v1568005591/main_kdhy10.png)
+  
+  * To **play** any music just click on any song 
+  * To **Add to Favourites** click on the love icon beside each song
+  * To **Add to playlist** check one or multiple checkboxes beside each song
+    * A playlist button would pop up click on the button
+    * choose already existing playlist(note you can add same song many times to same playlist) or create new one
+  * Click on any of the albums on the slider to play songs directly form such album
+
+## Enjoy the application     
+
+# Contributors
+  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/asadu_weyu8m.gif">
+
+  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/victor_rfwgks.gif">
+
+  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/temidire_siosjy.gif">
+
+ 
+  
+  
+  
