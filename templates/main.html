@@ -56,11 +56,11 @@
             <nav class="sidebar">
                 <div class="sidebar__content">
                     <p>App</p>
-                    <a href="#" class="sidebar__btn">
+                    <a href="/main" class="sidebar__btn">
                         <svg class="sidebar__icon">
                             <use xlink:href="/static/img/sprite.svg#icon-magic-wand"></use>
                         </svg>
-                        <p>Explore</p>
+                        <p>Home</p>
                     </a>
 
                     <ul class="list">
@@ -151,14 +151,14 @@
                         <div class="songs-holder" >
                                 {% for song in songs %}
                                 {% if song.favourite ==0 %}
-                            <div class="song " >
+                            <div class="song">
                                 <img src="/static/img/b1.jpg" alt="album art" class="song-img">
                                 <p class="song-no">{{song.id -54}}</p>
                                 <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
                                 </a>
                                 <p class="song-time">3:23</p>
                                 <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')"  class="sidebar__icon like-icon">
-                                    <use   class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
+                                    <use class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
                                 </svg>
                                 <input type="checkbox" class="song-icon">
                             </div>
@@ -213,14 +213,14 @@
 
                 <img src="/static/img/b7.jpg" alt="album art" class="song-img">
 
-                <p style="font-size: 12px;" class="song-name playing">Rodeo <span class="artist">Kirko and Bangs</span></p>
+                <p style="" class="song-name playing"><span class="artist">Kirko and Bangs</span></p>
 
                 <!-- <p class="song-time">0:00</p> -->
                 <!-- <div class="range" id="range">
                     <div class="slider" id="slider2"></div>
                 </div> -->
-                <audio style="width: 100%" id="song_id" controls="controls" autoplay></audio>
-                <p class="song-time">4:12</p>
+                <audio style="width: 70vw" id="song_id" controls="controls" autoplay></audio>
+                <!-- <p class="song-time">4:12</p> -->
             </div>
         </footer>
 
