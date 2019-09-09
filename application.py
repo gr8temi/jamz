@@ -76,8 +76,8 @@ def signup():
         return jsonify(True)
     else:
         return render_template("signup.html")   
-
 @app.route("/")
+@login_required
 def index():
     return render_template("index.html")   
 
@@ -119,8 +119,21 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
-          
+
+@app.route("/logout")
+def logout():
+    """Log user out"""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+  
+    return redirect("/")
+
+      
 @app.route('/main',  methods=["GET"])
+@login_required   
 def main():
     # songs = os.listdir('static/music')
     # audiofiles = []
@@ -145,10 +158,14 @@ def main():
     #     album = db.execute("SELECT id FROM album where artiste_id=:artiste",artiste=artiste[0]["id"])
     #     db.execute("INSERT INTO song (song_name,artiste_id,song) VALUES (:song_name,:artiste,:song)",song_name=val.tag.title,artiste=val.tag.artist,song=audiofiles[i])    
     songs = db.execute("SELECT * FROM song")
+    albums = db.execute("SELECT * FROM album")
+    name = db.execute("SELECT name FROM users WHERE id=:user",user=session["user_id"])
     # print(songs) 
-    return render_template("main.html",songs=songs)
+    return render_template("main.html",songs=songs,albums=albums,name=name[0]["name"])
+
 
 @app.route('/favourite', methods=["GET", "POST"])
+@login_required
 def favourite():
     if request.method=="POST":
         song = request.get_json()
@@ -166,6 +183,7 @@ def favourite():
         return render_template("favourite.html", songs=songs,playlist=playlist)
 
 @app.route('/album', methods=["GET","POST"])
+@login_required
 def albums():
     if request.method =="GET":
         albums = db.execute("SELECT * FROM album")
@@ -173,15 +191,18 @@ def albums():
 
 
 @app.route('/album_song', methods=["POST"])
+@login_required
 def albums_song():
     album = request.get_json()
+    playlists = db.execute("SELECT DISTINCT playlist_name FROM playlists")
     album_song = db.execute("SELECT * FROM song WHERE album_id=:id ", id=album["album_id"])
-    return render_template("album_song.html",album_song=album_song,playlist=playlist)   
+    return render_template("album_song.html",album_song=album_song,playlists=playlists)   
 # @app.route('/playlist', methods=["GET", "POST"])
 # def playlist():
 #     if request.method =="POST"'
 
 @app.route('/playlist', methods=["POST", "GET"] )
+@login_required
 def playlist():
     if request.method == "POST":
         info = request.get_json()
@@ -195,6 +216,7 @@ def playlist():
         return render_template("playlist.html",playlists=playlists)
 
 @app.route('/songz', methods=["POST"])
+@login_required
 def songz():
    info = request.get_json()
    playlist = info["playlist"]

@@ -111,7 +111,7 @@ function album(album){
              album_id:album_id,
         }),
         success: function (data) {
-            $(".album_song").html(data)
+            $(".songs-holder").html(data)
             // $("#album_menu").load(location.href + "#album_menu");
         }
     })
@@ -233,5 +233,12 @@ function songz(pla){
 function fav_get(){
     $.get("/favourite", function(data){
         $(".songs-holder").html(data)
+    })
+}
+function alb_get(){
+    $.get("/album", function(data){
+        console.log(data)
+        $(".albs").html(data)
+        // $(".alb_get").text("Albums")
     })
 }
