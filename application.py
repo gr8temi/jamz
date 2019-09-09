@@ -76,8 +76,8 @@ def signup():
         return jsonify(True)
     else:
         return render_template("signup.html")   
-@login_required
 @app.route("/")
+@login_required
 def index():
     return render_template("index.html")   
 
