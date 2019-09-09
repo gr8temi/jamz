@@ -38,7 +38,7 @@
             <nav class="user-nav">
                 <div class="user-nav__icon-box">
                     <img class="user" src="/static/img/user.png">
-                    <p class="log">Username</p>
+                    <p class="log">{{name}}</p>
                 </div>
 
                 <div class="user-nav__icon-box">
@@ -46,7 +46,7 @@
                         <use xlink:href="/static/img/sprite.svg#icon-dots-three-vertical"></use>
                     </svg>
                     <div class="dropdown-content">
-                        <a href="#">Logout</a>
+                        <a href="/logout">Logout</a>
                     </div>
                 </div>
             </nav>
@@ -101,7 +101,7 @@
                             <svg class="sidebar__icon">
                                 <use xlink:href="/static/img/sprite.svg#icon-vinyl"></use>
                             </svg>
-                            <a href="#" class="list__ele">Album</a>
+                            <a href="javascript:void(0)" onclick="alb_get()" class="list__ele">Album</a>
                         </li>
 
                         <li class="list__item">
@@ -130,36 +130,17 @@
                 </div>
             </nav>
 
-            <main class="app-view">
-                <div class="slider-div" id="slider">
-                    <div class="heading-primary">Explore New</div>
+            <main class="app-view ">
+                <div class="slider-div " id="slider">
+                    <div class="heading-primary alb_get">Albums</div>
 
-                    <div class="carousel-wrap">
-                        <div class="owl-carousel ">
-                            <div class="item"><img src="../static/img/b7.jpg">
-                                <div class="desc">Nicki Minaj</div>
-                            </div>
+                    <div class="carousel-wrap ">
+                        <div class="owl-carousel albs" id="song_menu">
+                            {% for album in albums %}
                             <div class="item"><img src="../static/img/b6.jpg">
-                                <div class="desc">Drake</div>
+                                <div class="desc"><a href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></div>
                             </div>
-                            <div class="item"><img src="../static/img/b2.jpg">
-                                <div class="desc">Akon</div>
-                            </div>
-                            <div class="item"><img src="../static/img/b4.jpg">
-                                <div class="desc">lil Nas X</div>
-                            </div>
-                            <div class="item"><img src="../static/img/b5.jpg">
-                                <div class="desc">Nicki Minaj</div>
-                            </div>
-                            <div class="item"><img src="../static/img/b6.jpg">
-                                <div class="desc">Nicki Minaj</div>
-                            </div>
-                            <div class="item"><img src="../static/img/b5.jpg">
-                                <div class="desc">Nicki Minaj</div>
-                            </div>
-                            <div class="item"><img src="../static/img/b6.jpg">
-                                <div class="desc">Nicki Minaj</div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -245,8 +226,8 @@
 
         <script src="../static/jquery/jquery.min.js"></script>
         <script src="../static/script/owl.carousel.min.js"></script>
-        <script src="../static/script/index.js"></script>
         <script src="../static/jquery/main.js"></script>
+         <script src="../static/script/index.js"></script>
 </body>
 
 </html>
