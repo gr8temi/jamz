@@ -75,11 +75,9 @@ An online Music player application that organises your music in a simple view
 ## Enjoy the application     
 
 # Contributors
-  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/asadu_weyu8m.gif">
-
-  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/victor_rfwgks.gif">
-
-  <img align="left" width="100" height="100" src="https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/temidire_siosjy.gif">
+  | [Chigozie Asadu](https://github.com/cchigo) | [Nnaji Victor](https://github.com/Nnaji-victor) | [Temidire Adams](https://github.com/gr8temi) |
+| --- | --- | --- |
+|![Chigozie Asadu](https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/asadu_weyu8m.gif) | ![Nnaji Victor](https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/victor_rfwgks.gif) | ![Temidire Adams](https://res.cloudinary.com/dczmdkhbw/image/upload/v1568006550/temidire_siosjy.gif) |
 
  
   
