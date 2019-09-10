@@ -160,8 +160,9 @@ def main():
     songs = db.execute("SELECT * FROM song")
     albums = db.execute("SELECT * FROM album")
     name = db.execute("SELECT name FROM users WHERE id=:user",user=session["user_id"])
+    playlist = db.execute("SELECT DISTINCT playlist_name FROM playlists WHERE user_id=:user", user=session["user_id"])
     # print(songs) 
-    return render_template("main.html",songs=songs,albums=albums,name=name[0]["name"])
+    return render_template("main.html",songs=songs,albums=albums,name=name[0]["name"],playlist=playlist)
 
 
 @app.route('/favourite', methods=["GET", "POST"])
@@ -176,7 +177,7 @@ def favourite():
             db.execute("UPDATE song SET favourite=0 WHERE song_name=:song",song=song["title"])
             return jsonify(True)
     elif request.method =="GET":
-        playlist = db.execute("SELECT DISTINCT playlist_name FROM playlists")
+        playlist = db.execute("SELECT DISTINCT playlist_name FROM playlists WHERE user_id=:user", user=session["user_id"])
         # for play in playlist:
         #     print(play["playlist_name"])
         songs = db.execute("SELECT * FROM song WHERE favourite=1")
@@ -211,7 +212,7 @@ def playlist():
             db.execute("INSERT INTO playlists (song_id,playlist_name) VALUES (:song,:playlist)", song=song,playlist=info["playlist"])
         return jsonify(True)
     elif request.method == "GET":
-        playlists = db.execute("SELECT DISTINCT playlist_name FROM playlists")
+        playlists = db.execute("SELECT DISTINCT playlist_name FROM playlists WHERE user_id=:user", user=session["user_id"])
         print(playlists)
         return render_template("playlist.html",playlists=playlists)
 
@@ -225,7 +226,7 @@ def songz():
    for ids in song_ids:
        song = db.execute("SELECT * FROM song where id=:ids",ids=ids["song_id"])
        songs.append(song)
-
+   print(songs)
    return render_template("songz.html",songs=songs)   
 
 # for i, song in enumerate(songs):

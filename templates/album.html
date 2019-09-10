@@ -14,18 +14,27 @@
         <title></title>
     </head>
     <body class="container">
-        <audio id="song_id" controls="controls" autoplay></audio>
-        <ul id="song_menu"> 
-            {% for album in albums %}            
-            <li><a href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></li> 
-            {% endfor %}
-        </ul>
+        <div class="slider-div " id="slider">
+            <div class="heading-primary alb_get">Albums</div>
+
+            <div class="carousel-wrap ">
+                <div class="owl-carousel albs">
+                    {% for album in albums %}
+                    <div class="item"><img src="../static/img/b6.jpg">
+                        <div class="desc"><a href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         <div class="album_song" id="album_menu">
 
         </div>
-
+        <script src="../static/jquery/jquery.min.js"></script>
+        <script src="../static/script/owl.carousel.min.js"></script>
         <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
         <script src="../static/jquery/main.js"></script>
+        <script src="../static/script/index.js"></script>
     </body>
     
 

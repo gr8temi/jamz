@@ -243,7 +243,7 @@ function songz(pla){
             playlist:playlist
         }),
         success:function(data){
-            $("#songz").html(data)
+            $(".songs-holder").html(data)
         }
     })
 }
