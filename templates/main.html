@@ -135,7 +135,7 @@
                     <div class="heading-primary alb_get">Albums</div>
 
                     <div class="carousel-wrap ">
-                        <div class="owl-carousel albs" id="song_menu">
+                        <div class="owl-carousel albs">
                             {% for album in albums %}
                             <div class="item"><img src="../static/img/b{{ range(5, 12) | random }}.jpg">
                                 <div><a class="desc" href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></div>
