@@ -25,7 +25,7 @@
                         {% endfor %}
                             
                         
-                            
+                            <p>or</p>
                             <button class="pla_add">Create new playlist</button>
                             <form action="/playlist" method="POST" class="add_pla" style="display: none;">               
                             <div>
@@ -36,12 +36,12 @@
                         </div>
 
                 {% for song in songs %}
-                <div class="song ">
-                        <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                <div class="song" style="margin-bottom: .8rem">
+                        <img src="/static/img/b{{ range(5, 20) | random }}.jpg" alt="album art" class="song-img">
                         <p class="song-no">{{song.id -54}}</p>
-                        <a href="javascript:void(0);" onclick="play('{{song.song}}')"  class="song-name">{{song.song_name}}
+                        <a href="javascript:void(0);" onclick="play('{{song.song}}')"  class="song-name">{{song.song_name.split('|')[0]}}
                         </a>
-                        <p class="song-time">3:23</p>
+                        <p class="song-time">{{ range(2, 4) | random }}:{{ range(0, 5) | random }}{{ range(0, 5) | random }}</p>
                         <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
                             <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
                         </svg>

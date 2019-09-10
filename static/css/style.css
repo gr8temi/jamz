@@ -22,10 +22,10 @@
     background-color: #1a1c22;
     border: none;
     color: #bdc3c7;
-    padding: .7rem 2rem;
+    padding: 0.7rem 2rem;
     border-radius: 100px;
     width: 80%;
-    transition: all .2s;
+    transition: all 0.2s;
     margin-right: -3.5rem; }
     .search__input:focus {
       outline: none;
@@ -53,7 +53,7 @@
     align-items: center;
     margin-right: 1rem;
     position: relative;
-    transition: all .3s; }
+    transition: all 0.3s; }
     .user-nav__icon-box .dropdown-content {
       display: none;
       position: absolute;
@@ -77,7 +77,7 @@
       border-radius: 100px;
       width: 1.7rem;
       height: 1.7rem;
-      margin-right: .7rem; }
+      margin-right: 0.7rem; }
     .user-nav__icon-box p {
       text-transform: uppercase;
       font-weight: 700; }
@@ -87,7 +87,7 @@
     fill: #bdc3c7; }
 
 .sidebar__content {
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   margin-bottom: -2rem; }
 
 .sidebar__btn {
@@ -96,9 +96,9 @@
   text-decoration: none;
   background-color: #005eff;
   color: #fff;
-  padding: .6rem 2.6rem;
+  padding: 0.6rem 2.6rem;
   display: inline-block;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   display: flex;
   margin-top: 1.2rem;
   box-shadow: 0rem 0.4rem 2.7rem rgba(189, 195, 199, 0.5); }
@@ -110,8 +110,8 @@
   width: 1.1rem;
   height: 1.1rem;
   fill: #fff;
-  margin-left: -.5rem;
-  margin-right: .6rem; }
+  margin-left: -0.5rem;
+  margin-right: 0.6rem; }
 
 .list {
   margin: 2rem 1.4rem; }
@@ -157,43 +157,54 @@
   right: -30px; }
 
 .item {
-  width: 14rem;
-  height: 12rem;
+  width: 13rem;
+  height: 11rem;
   position: relative;
-  transition: .3s all;
+  transition: 0.3s all;
   cursor: pointer; }
   .item .desc {
-    padding: 1rem 3rem;
+    padding: 1rem 1rem;
     background-color: black;
     color: white;
+    text-decoration: none;
     text-align: center;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, 200%);
     display: none;
-    transition: all .4s ease-in; }
+    transition: all 0.4s ease-in; }
   .item:hover {
-    filter: grayscale(80%) opacity(67%); }
+    filter: grayscale(60%) opacity(67%); }
   .item:hover .desc {
     display: inline-block;
     transform: translate(-50%, -50%);
-    z-index: 10; }
+    z-index: 10;
+    text-decoration: none; }
 
 .songs {
   height: auto;
   width: 100%; }
 
 .genres {
-  height: auto;
-  width: 100%;
+  height: 17rem;
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(2, min-content);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 1rem;
   text-align: center;
   margin-left: 4rem;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  overflow-y: scroll; }
+  .genres::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #000; }
+  .genres::-webkit-scrollbar {
+    width: 6px;
+    background-color: #000; }
+  .genres::-webkit-scrollbar-thumb {
+    background-color: #f5f5f5; }
   .genres .genre {
     height: 7rem;
     width: 10rem;
@@ -211,7 +222,7 @@
   grid-template-columns: 1fr;
   grid-row-gap: 1rem;
   overflow-y: scroll;
-  height: 15rem; }
+  height: 17rem; }
   .songs-holder::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #000; }
@@ -219,7 +230,7 @@
     width: 6px;
     background-color: #000; }
   .songs-holder::-webkit-scrollbar-thumb {
-    background-color: #F5F5F5; }
+    background-color: #f5f5f5; }
 
 .song {
   display: flex;
@@ -229,7 +240,7 @@
   height: 2.7rem;
   width: 2.7rem;
   border-radius: 10px;
-  margin-left: .1rem;
+  margin-left: 0.1rem;
   flex: 0 0 auto;
   margin-right: 1.1rem; }
 
@@ -237,7 +248,9 @@
   flex: 0 0 10%; }
 
 .song-name {
-  flex: 0 0 55%; }
+  flex: 0 0 55%;
+  color: inherit;
+  text-decoration: none; }
 
 .like-icon {
   flex: 0 0 5%; }
@@ -248,17 +261,23 @@
 .song-icon {
   flex: 0 0 10%; }
 
+#song_id {
+  margin-left: 3rem; }
+
 .range {
-  height: .5rem;
+  height: 0.5rem;
   width: 60%;
   border: 1px solid #bdc3c7;
   border-radius: 1rem;
   margin-left: -6rem;
   margin-right: 1rem; }
 
+.slider-div {
+  height: 20rem; }
+
 .slider {
-  padding-top: .4rem;
-  height: .2rem;
+  padding-top: 0.4rem;
+  height: 0.2rem;
   width: 0px;
   background-color: #005eff; }
 
@@ -266,17 +285,40 @@
   display: flex;
   flex-direction: column;
   flex: 0 0 10%;
-  font-size: 1.2rem; }
+  font-size: 1rem; }
   .playing .artist {
-    font-size: 0.9rem;
+    font-size: inherit !important;
     filter: brightness(0.7); }
+
+.playlist_id {
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  background-color: #005eff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 2.6rem;
+  display: inline-block;
+  border-radius: 0.2rem;
+  display: flex;
+  margin-top: 1.2rem;
+  box-shadow: 0rem 0.4rem 2.7rem rgba(189, 195, 199, 0.5);
+  margin-bottom: .6rem;
+  position: relative; }
+
+#play_list {
+  display: inline;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase; }
 
 .container {
   max-width: auto;
   margin: 1.3rem;
   background-color: #000;
   box-shadow: 0 2rem 18rem rgba(225, 225, 225, 0.3);
-  min-height: 40rem;
+  max-height: auto;
   overflow-x: hidden; }
 
 .header {
@@ -300,14 +342,14 @@
 .app-view {
   flex: 1;
   height: 35rem;
-  margin: 1.6rem 0 0 3rem; }
+  margin: 1.6rem 0 .6rem 3rem; }
 
 .song-contents {
   display: grid;
   width: 90vw;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  margin-top: -2rem; }
+  margin-top: -6rem; }
 
 .footer-items {
   margin-left: 2rem;
@@ -478,7 +520,3 @@ q:before,
 q:after {
   content: '';
   content: none; }
-#song_menu a{
-  text-decoration: none;
-  color: #fff;
-}
