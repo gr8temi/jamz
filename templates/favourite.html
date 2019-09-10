@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <script src="/static/jquery/jquery.min.js"></script>
-            <link rel="stylesheet" href="/static/css/style.css">
-            
-            <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="../static/css/style.css">
-            <link rel="shortcut icon" type="image/png" href="">
-            
-            <title></title>
-        </head>
-        <body class="container">
-           
-    
-            <ul> 
-                    <button class="playlist_id" style="display: none;">+ Playlist</button> 
-                    <div class="playlist_panel" style="display: none">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Manjari:100,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="">
+
+    <title></title>
+</head>
+
+<body class="container">
+
+
+    <ul>
+        <button class="playlist_id" style="display: none;">+ Playlist</button>
+        <div class="mask" role="dialog"></div>
+        <div class="modal playlist_panel" role="alert">
+            <button class="close" role="button">X</button>
+            <div class="playlist-holder">
+                <p>Add to existing playlists</p>
+                {% for play in playlist %}
+                <li><a href="javascript:void(0)" id="play_list" onclick="playli('{{play["playlist_name"]}}')">+
+                        {{play["playlist_name"]}}</a>
+                    <span class="xclose" role="button">X</span>
+                    </li>
+                {% endfor %}
+                <p>or</p>
+                <button class="pla_add sidebar__btn">Create new playlist</button>
+                <form action="/playlist" method="POST" class="add_pla pla_add" style="display: none;">
+                    <div>
+                        <input type="text" id="new_play" name="new_play" placeholder="Add Playlist">
+                        <input type="submit" value="create" class="create_btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="playlist_panel" style="display: none">
                         
                         {% for play in playlist %}
                             <li><a href="javascript:void(0)" id="play_list" onclick="playli('{{play["playlist_name"]}}')">+ {{play["playlist_name"]}}</a></li>
@@ -33,28 +56,29 @@
                               <input type="submit" value="create">
                             </div>
                             </form>
-                        </div>
+                        </div> -->
 
-                {% for song in songs %}
-                <div class="song" style="margin-bottom: .8rem">
-                        <img src="/static/img/b{{ range(5, 20) | random }}.jpg" alt="album art" class="song-img">
-                        <p class="song-no">{{song.id -54}}</p>
-                        <a href="javascript:void(0);" onclick="play('{{song.song}}')"  class="song-name">{{song.song_name.split('|')[0]}}
-                        </a>
-                        <p class="song-time">{{ range(2, 4) | random }}:{{ range(0, 5) | random }}{{ range(0, 5) | random }}</p>
-                        <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
-                            <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
-                        </svg>
-                        <input type="checkbox" class="song-icon play_check" name="play_check" value="{{song.id}}" onclick="plays()">
-                 </div> 
-                {% endfor %}
-            </ul>
-          
-    
-    
-            <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
-            <script src="../static/jquery/main.js"></script>
-        </body>
-        
-    
-    </html>
+        {% for song in songs %}
+        <div class="song" style="margin-bottom: .8rem">
+            <img src="/static/img/b{{ range(5, 20) | random }}.jpg" alt="album art" class="song-img">
+            <p class="song-no">{{song.id -54}}</p>
+            <a href="javascript:void(0);" onclick="play('{{song.song}}')"
+                class="song-name">{{song.song_name.split('|')[0]}}
+            </a>
+            <p class="song-time">{{ range(2, 4) | random }}:{{ range(0, 5) | random }}{{ range(0, 5) | random }}</p>
+            <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
+                <use class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
+            </svg>
+            <input type="checkbox" class="song-icon play_check" name="play_check" value="{{song.id}}" onclick="plays()">
+        </div>
+        {% endfor %}
+    </ul>
+
+
+
+    <script type="text/javascript" src="../static/jquery/jquery.min.js"></script>
+    <script src="../static/jquery/main.js"></script>
+</body>
+
+
+</html>

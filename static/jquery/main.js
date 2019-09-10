@@ -144,8 +144,25 @@ function plays(){
 }
 
 $(".playlist_id").click(function(){
-    $(".playlist_panel").toggle()
+    // $(".playlist_panel").toggle()
+    $(".mask").addClass("active");
 })
+
+function closeModal(){
+    $(".mask").removeClass("active");
+  }
+  
+  // Call the closeModal function on the clicks/keyboard
+  
+  $(".close, .mask").on("click", function(){
+    closeModal();
+  });
+  
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      closeModal();
+    }
+  });
  
 $(".add_pla").submit(function(e){
     e.preventDefault()
