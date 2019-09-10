@@ -36,16 +36,19 @@ $('.owl-carousel').owlCarousel({
     }
   })
 
-  const rangeDiv = document.querySelector('#range');
-  const sliderDiv = document.querySelector('#slider2')
-  let percent = 0;
+  // const rangeDiv = document.querySelector('#range');
+  // const sliderDiv = document.querySelector('#slider2')
+  // let percent = 0;
 
-  let timer = setInterval(() => {
-    if(percent === 100){
-      clearInterval(timer);
-    }
+  // let timer = setInterval(() => {
+  //   if(percent === 100){
+  //     clearInterval(timer);
+  //   }
 
-    sliderDiv.style.width = `${percent}%`;
-    percent +=0.5;
-  }, 1000);
+  //   sliderDiv.style.width = `${percent}%`;
+  //   percent +=0.5;
+  // }, 1000);
   
+
+  // Click function for show the Modal
+

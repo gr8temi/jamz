@@ -131,14 +131,14 @@
             </nav>
 
             <main class="app-view ">
-                <div class="slider-div " id="slider">
+                <div class="slider-div" id="slider">
                     <div class="heading-primary alb_get">Albums</div>
 
                     <div class="carousel-wrap ">
                         <div class="owl-carousel albs" id="song_menu">
                             {% for album in albums %}
-                            <div class="item"><img src="../static/img/b6.jpg">
-                                <div class="desc"><a href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></div>
+                            <div class="item"><img src="../static/img/b{{ range(5, 12) | random }}.jpg">
+                                <div><a class="desc" href="javascript:void(0);" onclick="album('{{album.id}}')">{{album.name}}</a></div>
                             </div>
                             {% endfor %}
                         </div>
@@ -152,9 +152,9 @@
                                 {% for song in songs %}
                                 {% if song.favourite ==0 %}
                             <div class="song">
-                                <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                                <img src="/static/img/b{{ range(5, 12) | random }}.jpg" alt="album art" class="song-img">
                                 <p class="song-no">{{song.id -54}}</p>
-                                <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name.split('|')[0]}}
                                 </a>
                                 <p class="song-time">3:23</p>
                                 <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')"  class="sidebar__icon like-icon">
@@ -164,11 +164,11 @@
                             </div>
                             {% else %}
                             <div class="song ">
-                                    <img src="/static/img/b1.jpg" alt="album art" class="song-img">
+                                    <img src="/static/img/b{{ range(5, 20) | random }}.jpg" alt="album art" class="song-img">
                                     <p class="song-no">{{song.id -54}}</p>
-                                    <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name}}
+                                    <a href="javascript:void(0);" onclick="play('{{song.song}}','{{song.artiste}}')"  class="song-name">{{song.song_name.split('|')[0]}}
                                     </a>
-                                    <p class="song-time">3:23</p>
+                                    <p class="song-time">{{ range(2, 4) | random }}:{{ range(0, 5) | random }}{{ range(0, 5) | random }}</p>
                                     <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
                                         <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
                                     </svg>
@@ -182,6 +182,10 @@
                     <div class="genress">
                         <div class="heading-primary u-move-text">Mood</div>
                         <div class="genres">
+                            <div class="genre">Hip pop</div>
+                            <div class="genre">RnB</div>
+                            <div class="genre">AfroBeat</div>
+                            <div class="genre">Rap</div>
                             <div class="genre">Hip pop</div>
                             <div class="genre">RnB</div>
                             <div class="genre">AfroBeat</div>
@@ -213,7 +217,7 @@
 
                 <img src="/static/img/b7.jpg" alt="album art" class="song-img">
 
-                <p style="" class="song-name playing"><span class="artist">Kirko and Bangs</span></p>
+                <p style="" class="song-name playing"><span class="artist"></span></p>
 
                 <!-- <p class="song-time">0:00</p> -->
                 <!-- <div class="range" id="range">
