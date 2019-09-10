@@ -149,6 +149,28 @@
                     <div class="songs" id="song_menu">
                         <div class="heading-primary">Songs</div>
                         <div class="songs-holder" >
+                                <button class="playlist_id" style="display: none; width: 20%">+ Playlist</button> 
+                                <div class="mask" role="dialog"></div>
+                                <div class="modal playlist_panel" role="alert">
+                                        <button class="close" role="button">X</button>
+                                        <div class="playlist-holder">
+                                            <p>Add to existing playlists</p>
+                                            {% for play in playlist %}
+                                            <li><a href="javascript:void(0)" id="play_list" onclick="playli('{{play["playlist_name"]}}')">+
+                                                    {{play["playlist_name"]}}</a>
+                                                <span class="xclose" role="button">X</span>
+                                                </li>
+                                            {% endfor %}
+                                            <p>or</p>
+                                            <button class="pla_add sidebar__btn">Create new playlist</button>
+                                            <form action="/playlist" method="POST" class="add_pla pla_add" style="display: none;">
+                                                <div>
+                                                    <input type="text" id="new_play" name="new_play" placeholder="Add Playlist">
+                                                    <input type="submit" value="create" class="create_btn">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 {% for song in songs %}
                                 {% if song.favourite ==0 %}
                             <div class="song">
@@ -160,7 +182,7 @@
                                 <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')"  class="sidebar__icon like-icon">
                                     <use class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart-outlined" class="like-icon"></use>
                                 </svg>
-                                <input type="checkbox" class="song-icon">
+                                <input type="checkbox" class="song-icon play_check" name="play_check" value="{{song.id}}" onclick="plays()">
                             </div>
                             {% else %}
                             <div class="song ">
@@ -172,7 +194,7 @@
                                     <svg onclick="fav('{{song.song_name}}','{{song.favourite}}')" class="sidebar__icon like-icon liked">
                                         <use  class="fav_button" xlink:href="/static/img/sprite.svg#icon-heart" class="liked"></use>
                                     </svg>
-                                    <input type="checkbox" class="song-icon">
+                                    <input type="checkbox" class="song-icon play_check" name="play_check" value="{{song.id}}" onclick="plays()">
                                 </div>
                                 {% endif %}
                             {% endfor %}
@@ -182,14 +204,13 @@
                     <div class="genress">
                         <div class="heading-primary u-move-text">PlayLists</div>
                         <div class="genres">
-                            <div class="genre">Hip pop</div>
-                            <div class="genre">RnB</div>
-                            <div class="genre">AfroBeat</div>
-                            <div class="genre">Rap</div>
-                            <div class="genre">Hip pop</div>
-                            <div class="genre">RnB</div>
-                            <div class="genre">AfroBeat</div>
-                            <div class="genre">Rap</div>
+                            
+                            {% for playlist in playlist %}
+                                <div class="genre"><a href="javascript:void(0)" onclick="songz('{{playlist.playlist_name}}')">{{playlist.playlist_name}}</a></div>
+                            {% endfor %}
+                                
+                            
+                            
                         </div>
                     </div>
                 </div>
